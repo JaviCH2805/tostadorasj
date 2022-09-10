@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h5="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"   
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+        <title>Recuperar</title>
+        <!-- Favicon icon -->
+        <link rel="icon" type="image/png" sizes="16x16" href="assets_index/images/cafe.png"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"/>
+        <link href="assets_index/css/style.css" rel="stylesheet"/>
+
+    </h:head>
+    <h:body class="h-100">
+
+        <!--*******************
+            Preloader start
+        ********************-->
+        <div id="preloader">
+            <div class="loader">
+                <svg class="circular" viewBox="25 25 50 50">
+                    <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+                </svg>
+            </div>
+        </div>
+        <!--*******************
+            Preloader end
+        ********************-->
+
+
+
+        
+        <br></br>
+        <br></br>
+        <br></br><!-- comment -->
+        <br></br><!-- comment -->
+        <br></br><!-- comment -->
+        <br></br><!-- comment -->
+        <br></br>
+
+        <div class="login-form-bg h-100">
+            <div class="container h-100">
+                <div class="row justify-content-center h-100">
+                    <div class="col-xl-6">
+                        <div class="form-input-content">
+                            <div class="card login-form mb-0">
+                                <div class="card-body pt-5">
+                                    <a class="text-center" href="index.html"> <h4>Recuperar</h4></a>
+
+                                    <h:form class="mt-5 mb-5 login-input">
+                                        <div class="form-group">
+                                            <h:inputText h5:type="email" 
+                                                         required="true"
+                                                         value="#{inicioSesion.correo}"
+                                                         requiredMessage="este campo es obligatorio"
+                                                         class="form-control"  
+                                                         h5:placeholder="Email"
+                                                         id="id_email">
+                                                         
+                                            </h:inputText>
+                                            <h:message for="id_email" style="color: red"></h:message>
+
+                                        </div>
+                                        
+                                        
+                                        <h:commandButton action="#{inicioSesion.validarRecovery()}" value="Recover" class="btn login-form bg-dark __btn w-100"></h:commandButton>
+                                    </h:form>
+                                    <p class="mt-5 login-form__footer">Tienes Cuenta? <a href="register.xhtml" class="text-primary">Registrate</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!--**********************************
+            Scripts
+        ***********************************-->
+         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="assets_index/plugins/common/common.min.js"></script>
+        <script src="assets_index/js/custom.min.js"></script>
+        <script src="assets_index/js/settings.js"></script>
+        <script src="assets_index/js/gleek.js"></script>
+        <script src="assets_index/js/styleSwitcher.js"></script>
+    </h:body>
+</html>
+

@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<entity-mappings v="5.4.3" status="GENERATED" persistenceUnitName="DEFAULT_PU" sm="false" id="_16561774701231" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <entity abs="false" class="Payments" v="true" xre="false" m="false" rootElement="_16561774701231" id="_16561774701542">
+        <attributes>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="createdAt" id="_165617747015718">
+                <temporal>TIMESTAMP</temporal>
+                <column name="created_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_payments"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="updatedAt" id="_165617747015719">
+                <temporal>TIMESTAMP</temporal>
+                <column name="updated_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_payments"/>
+            </basic>
+            <basic optional="false" attribute-type="int" v="true" name="total" id="_165617747015720">
+                <column name="total" unique="false" nullable="false" insertable="true" updatable="true" table="sg_payments"/>
+            </basic>
+            <many-to-one optional="false" connected-entity-id="_16561774701545" connected-attribute-id="_165617747015839" v="true" name="methodPaymentId" id="_165617747015721">
+                <join-column name="METHOD_PAYMENT_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </many-to-one>
+            <many-to-one optional="false" connected-entity-id="_165617747015411" connected-attribute-id="_165617747015988" v="true" name="users" id="_165617747015722">
+                <join-column name="USER_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+                <join-column name="USER_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </many-to-one>
+            <one-to-many own="false" connected-entity-id="_165617747015415" connected-attribute-id="_1656177470159116" v="true" name="orderDetailsPaymentsCollection" id="_165617747015823"/>
+            <id attribute-type="Integer" v="true" name="id" id="_165617747015617">
+                <column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="sg_payments"/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <table name="sg_payments"/>
+    </entity>
+    <entity abs="false" class="Permissions" v="true" xre="false" m="false" rootElement="_16561774701231" id="_16561774701543">
+        <attributes>
+            <basic optional="false" attribute-type="String" v="true" name="namePermission" id="_165617747015825">
+                <column name="name_permission" unique="false" nullable="false" insertable="true" updatable="true" table="sg_permissions" length="255"/>
+            </basic>
+            <basic optional="false" attribute-type="String" v="true" name="description" id="_165617747015826">
+                <column name="description" unique="false" nullable="false" insertable="true" updatable="true" table="sg_permissions" length="255"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="createdAt" id="_165617747015827">
+                <temporal>TIMESTAMP</temporal>
+                <column name="created_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_permissions"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="updatedAt" id="_165617747015828">
+                <temporal>TIMESTAMP</temporal>
+                <column name="updated_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_permissions"/>
+            </basic>
+            <one-to-many own="false" connected-entity-id="_16561774701547" connected-attribute-id="_165617747015850" v="true" name="rolesCollection" id="_165617747015829"/>
+            <id attribute-type="Integer" v="true" name="id" id="_165617747015824">
+                <column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="sg_permissions"/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <table name="sg_permissions"/>
+    </entity>
+    <entity abs="false" class="Wishlist" v="true" xre="false" m="false" rootElement="_16561774701231" id="_16561774701544">
+        <attributes>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="createdAt" id="_165617747015831">
+                <temporal>TIMESTAMP</temporal>
+                <column name="created_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_wishlist"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="updatedAt" id="_165617747015832">
+                <temporal>TIMESTAMP</temporal>
+                <column name="updated_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_wishlist"/>
+            </basic>
+            <many-to-one optional="false" connected-entity-id="_165617747015410" connected-attribute-id="_165617747015873" v="true" name="productId" id="_165617747015833">
+                <join-column name="PRODUCT_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </many-to-one>
+            <many-to-one optional="false" connected-entity-id="_165617747015411" connected-attribute-id="_165617747015989" v="true" name="users" id="_165617747015834">
+                <join-column name="USER_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+                <join-column name="USER_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </many-to-one>
+            <id attribute-type="Integer" v="true" name="id" id="_165617747015830">
+                <column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="sg_wishlist"/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <table name="sg_wishlist"/>
+    </entity>
+    <entity abs="false" class="MethodPayments" v="true" xre="false" m="false" rootElement="_16561774701231" id="_16561774701545">
+        <attributes>
+            <basic optional="false" attribute-type="String" v="true" name="nameMethod" id="_165617747015836">
+                <column name="name_method" unique="false" nullable="false" insertable="true" updatable="true" table="sg_method_payments" length="255"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="createdAt" id="_165617747015837">
+                <temporal>TIMESTAMP</temporal>
+                <column name="created_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_method_payments"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="updatedAt" id="_165617747015838">
+                <temporal>TIMESTAMP</temporal>
+                <column name="updated_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_method_payments"/>
+            </basic>
+            <one-to-many own="false" connected-entity-id="_16561774701542" connected-attribute-id="_165617747015721" v="true" name="paymentsCollection" id="_165617747015839"/>
+            <id attribute-type="Integer" v="true" name="id" id="_165617747015835">
+                <column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="sg_method_payments"/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <table name="sg_method_payments"/>
+    </entity>
+    <entity abs="false" class="StatusOrders" v="true" xre="false" m="false" rootElement="_16561774701231" id="_16561774701546">
+        <attributes>
+            <basic optional="false" attribute-type="String" v="true" name="nameStatus" id="_165617747015841">
+                <column name="name_status" unique="false" nullable="false" insertable="true" updatable="true" table="sg_status_orders" length="255"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="createdAt" id="_165617747015842">
+                <temporal>TIMESTAMP</temporal>
+                <column name="created_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_status_orders"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="updatedAt" id="_165617747015843">
+                <temporal>TIMESTAMP</temporal>
+                <column name="updated_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_status_orders"/>
+            </basic>
+            <one-to-many own="false" connected-entity-id="_165617747015416" connected-attribute-id="_1656177470159125" v="true" name="orderDetailsCollection" id="_165617747015844"/>
+            <id attribute-type="Integer" v="true" name="id" id="_165617747015840">
+                <column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="sg_status_orders"/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <table name="sg_status_orders"/>
+    </entity>
+    <entity abs="false" class="Roles" v="true" xre="false" m="false" rootElement="_16561774701231" id="_16561774701547">
+        <attributes>
+            <basic optional="false" attribute-type="String" v="true" name="nameRole" id="_165617747015846">
+                <column name="name_role" unique="false" nullable="false" insertable="true" updatable="true" table="sg_roles" length="255"/>
+            </basic>
+            <basic optional="false" attribute-type="String" v="true" name="description" id="_165617747015847">
+                <column name="description" unique="false" nullable="false" insertable="true" updatable="true" table="sg_roles" length="255"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="createdAt" id="_165617747015848">
+                <temporal>TIMESTAMP</temporal>
+                <column name="created_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_roles"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="updatedAt" id="_165617747015849">
+                <temporal>TIMESTAMP</temporal>
+                <column name="updated_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_roles"/>
+            </basic>
+            <many-to-one optional="false" connected-entity-id="_16561774701543" connected-attribute-id="_165617747015829" v="true" name="permissionId" id="_165617747015850">
+                <join-column name="PERMISSION_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </many-to-one>
+            <one-to-many own="false" connected-entity-id="_165617747015411" connected-attribute-id="_165617747015992" v="true" name="usersCollection" id="_165617747015851"/>
+            <id attribute-type="Integer" v="true" name="id" id="_165617747015845">
+                <column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="sg_roles"/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <table name="sg_roles"/>
+    </entity>
+    <entity abs="false" class="Carts" v="true" xre="false" m="false" rootElement="_16561774701231" id="_16561774701548">
+        <attributes>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="createdAt" id="_165617747015853">
+                <temporal>TIMESTAMP</temporal>
+                <column name="created_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_carts"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="updatedAt" id="_165617747015854">
+                <temporal>TIMESTAMP</temporal>
+                <column name="updated_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_carts"/>
+            </basic>
+            <basic optional="false" attribute-type="int" v="true" name="quantity" id="_165617747015855">
+                <column name="quantity" unique="false" nullable="false" insertable="true" updatable="true" table="sg_carts"/>
+            </basic>
+            <basic optional="false" attribute-type="int" v="true" name="price" id="_165617747015856">
+                <column name="price" unique="false" nullable="false" insertable="true" updatable="true" table="sg_carts"/>
+            </basic>
+            <basic optional="false" attribute-type="int" v="true" name="total" id="_165617747015857">
+                <column name="total" unique="false" nullable="false" insertable="true" updatable="true" table="sg_carts"/>
+            </basic>
+            <many-to-one optional="false" connected-entity-id="_165617747015410" connected-attribute-id="_165617747015874" v="true" name="productId" id="_165617747015858">
+                <join-column name="PRODUCT_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </many-to-one>
+            <many-to-one optional="false" connected-entity-id="_165617747015411" connected-attribute-id="_165617747015990" v="true" name="users" id="_165617747015859">
+                <join-column name="USER_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+                <join-column name="USER_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </many-to-one>
+            <id attribute-type="Integer" v="true" name="id" id="_165617747015852">
+                <column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="sg_carts"/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <table name="sg_carts"/>
+    </entity>
+    <entity abs="false" class="Orders" v="true" xre="false" m="false" rootElement="_16561774701231" id="_16561774701549">
+        <attributes>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="createdAt" id="_165617747015861">
+                <temporal>TIMESTAMP</temporal>
+                <column name="created_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_orders"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="updatedAt" id="_165617747015862">
+                <temporal>TIMESTAMP</temporal>
+                <column name="updated_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_orders"/>
+            </basic>
+            <many-to-one optional="false" connected-entity-id="_165617747015411" connected-attribute-id="_165617747015991" v="true" name="users" id="_165617747015863">
+                <join-column name="USER_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+                <join-column name="USER_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </many-to-one>
+            <one-to-many own="false" connected-entity-id="_165617747015415" connected-attribute-id="_1656177470159115" v="true" name="orderDetailsPaymentsCollection" id="_165617747015864"/>
+            <one-to-many own="false" connected-entity-id="_165617747015416" connected-attribute-id="_1656177470159123" v="true" name="orderDetailsCollection" id="_165617747015865"/>
+            <id attribute-type="Integer" v="true" name="id" id="_165617747015860">
+                <column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="sg_orders"/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <table name="sg_orders"/>
+    </entity>
+    <entity abs="false" class="Products" v="true" xre="false" m="false" rootElement="_16561774701231" id="_165617747015410">
+        <attributes>
+            <basic optional="false" attribute-type="String" v="true" name="nameProduct" id="_165617747015867">
+                <column name="name_product" unique="false" nullable="false" insertable="true" updatable="true" table="sg_products" length="255"/>
+            </basic>
+            <basic optional="false" attribute-type="String" v="true" name="description" id="_165617747015868">
+                <column name="description" unique="false" nullable="false" insertable="true" updatable="true" table="sg_products" length="255"/>
+            </basic>
+            <basic optional="false" attribute-type="int" v="true" name="price" id="_165617747015869">
+                <column name="price" unique="false" nullable="false" insertable="true" updatable="true" table="sg_products"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="createdAt" id="_165617747015870">
+                <temporal>TIMESTAMP</temporal>
+                <column name="created_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_products"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="updatedAt" id="_165617747015871">
+                <temporal>TIMESTAMP</temporal>
+                <column name="updated_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_products"/>
+            </basic>
+            <basic optional="false" attribute-type="String" v="true" name="image" id="_165617747015872">
+                <column name="image" unique="false" nullable="false" insertable="true" updatable="true" table="sg_products" length="255"/>
+            </basic>
+            <many-to-one optional="false" connected-entity-id="_165617747015412" connected-attribute-id="_1656177470159100" v="true" name="categoryId" id="_165617747015875">
+                <join-column name="CATEGORY_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </many-to-one>
+            <one-to-many own="false" connected-entity-id="_16561774701544" connected-attribute-id="_165617747015833" v="true" name="wishlistCollection" id="_165617747015873"/>
+            <one-to-many own="false" connected-entity-id="_16561774701548" connected-attribute-id="_165617747015858" v="true" name="cartsCollection" id="_165617747015874"/>
+            <one-to-many own="false" connected-entity-id="_165617747015413" connected-attribute-id="_1656177470159104" v="true" name="likesCollection" id="_165617747015876"/>
+            <one-to-many own="false" connected-entity-id="_165617747015414" connected-attribute-id="_1656177470159110" v="true" name="commentsCollection" id="_165617747015877"/>
+            <one-to-many own="false" connected-entity-id="_165617747015416" connected-attribute-id="_1656177470159124" v="true" name="orderDetailsCollection" id="_165617747015878"/>
+            <id attribute-type="Integer" v="true" name="id" id="_165617747015866">
+                <column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="sg_products"/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <table name="sg_products"/>
+    </entity>
+    <entity abs="false" class="Users" v="true" xre="false" m="false" rootElement="_16561774701231" id="_165617747015411">
+        <attributes>
+            <basic optional="false" attribute-type="String" v="true" name="nameUser" id="_165617747015880">
+                <column name="name_user" unique="false" nullable="false" insertable="true" updatable="true" table="sg_users" length="255"/>
+            </basic>
+            <basic optional="false" attribute-type="String" v="true" name="email" id="_165617747015881">
+                <column name="email" unique="false" nullable="false" insertable="true" updatable="true" table="sg_users" length="255"/>
+            </basic>
+            <basic optional="false" attribute-type="String" v="true" name="password" id="_165617747015882">
+                <column name="password" unique="false" nullable="false" insertable="true" updatable="true" table="sg_users" length="255"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="createdAt" id="_165617747015883">
+                <temporal>TIMESTAMP</temporal>
+                <column name="created_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_users"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="updatedAt" id="_165617747015884">
+                <temporal>TIMESTAMP</temporal>
+                <column name="updated_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_users"/>
+            </basic>
+            <basic optional="false" attribute-type="String" v="true" name="adress" id="_165617747015985">
+                <column name="adress" unique="false" nullable="false" insertable="true" updatable="true" table="sg_users" length="255"/>
+            </basic>
+            <basic optional="false" attribute-type="String" v="true" name="country" id="_165617747015986">
+                <column name="country" unique="false" nullable="false" insertable="true" updatable="true" table="sg_users" length="255"/>
+            </basic>
+            <basic optional="false" attribute-type="String" v="true" name="phoneNumber" id="_165617747015987">
+                <column name="phone_number" unique="false" nullable="false" insertable="true" updatable="true" table="sg_users" length="255"/>
+            </basic>
+            <many-to-one optional="false" connected-entity-id="_16561774701547" connected-attribute-id="_165617747015851" v="true" name="roleId" id="_165617747015992">
+                <join-column name="ROLE_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </many-to-one>
+            <one-to-many own="false" connected-entity-id="_16561774701542" connected-attribute-id="_165617747015722" v="true" name="paymentsCollection" id="_165617747015988"/>
+            <one-to-many own="false" connected-entity-id="_16561774701544" connected-attribute-id="_165617747015834" v="true" name="wishlistCollection" id="_165617747015989"/>
+            <one-to-many own="false" connected-entity-id="_16561774701548" connected-attribute-id="_165617747015859" v="true" name="cartsCollection" id="_165617747015990"/>
+            <one-to-many own="false" connected-entity-id="_16561774701549" connected-attribute-id="_165617747015863" v="true" name="ordersCollection" id="_165617747015991"/>
+            <one-to-many own="false" connected-entity-id="_165617747015413" connected-attribute-id="_1656177470159105" v="true" name="likesCollection" id="_165617747015993"/>
+            <one-to-many own="false" connected-entity-id="_165617747015414" connected-attribute-id="_1656177470159111" v="true" name="commentsCollection" id="_165617747015994"/>
+            <id attribute-type="Integer" v="true" name="id" id="_165617747015879">
+                <column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="sg_users"/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <table name="sg_users">
+            <unique-constraint>
+                <column-name>email</column-name>
+            </unique-constraint>
+        </table>
+    </entity>
+    <entity abs="false" class="Category" v="true" xre="false" m="false" rootElement="_16561774701231" id="_165617747015412">
+        <attributes>
+            <basic optional="false" attribute-type="String" v="true" name="nameCategory" id="_165617747015996">
+                <column name="name_category" unique="false" nullable="false" insertable="true" updatable="true" table="sg_category" length="255"/>
+            </basic>
+            <basic optional="false" attribute-type="String" v="true" name="description" id="_165617747015997">
+                <column name="description" unique="false" nullable="false" insertable="true" updatable="true" table="sg_category" length="255"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="createdAt" id="_165617747015998">
+                <temporal>TIMESTAMP</temporal>
+                <column name="created_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_category"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="updatedAt" id="_165617747015999">
+                <temporal>TIMESTAMP</temporal>
+                <column name="updated_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_category"/>
+            </basic>
+            <one-to-many own="false" connected-entity-id="_165617747015410" connected-attribute-id="_165617747015875" v="true" name="productsCollection" id="_1656177470159100"/>
+            <id attribute-type="Integer" v="true" name="id" id="_165617747015995">
+                <column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="sg_category"/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <table name="sg_category"/>
+    </entity>
+    <entity abs="false" class="Likes" v="true" xre="false" m="false" rootElement="_16561774701231" id="_165617747015413">
+        <attributes>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="createdAt" id="_1656177470159102">
+                <temporal>TIMESTAMP</temporal>
+                <column name="created_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_likes"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="updatedAt" id="_1656177470159103">
+                <temporal>TIMESTAMP</temporal>
+                <column name="updated_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_likes"/>
+            </basic>
+            <many-to-one optional="false" connected-entity-id="_165617747015410" connected-attribute-id="_165617747015876" v="true" name="productId" id="_1656177470159104">
+                <join-column name="PRODUCT_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </many-to-one>
+            <many-to-one optional="false" connected-entity-id="_165617747015411" connected-attribute-id="_165617747015993" v="true" name="users" id="_1656177470159105">
+                <join-column name="USER_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+                <join-column name="USER_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </many-to-one>
+            <id attribute-type="Integer" v="true" name="id" id="_1656177470159101">
+                <column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="sg_likes"/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <table name="sg_likes"/>
+    </entity>
+    <entity abs="false" class="Comments" v="true" xre="false" m="false" rootElement="_16561774701231" id="_165617747015414">
+        <attributes>
+            <basic optional="false" attribute-type="String" v="true" name="comment" id="_1656177470159107">
+                <column name="comment" unique="false" nullable="false" insertable="true" updatable="true" table="sg_comments" length="255"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="createdAt" id="_1656177470159108">
+                <temporal>TIMESTAMP</temporal>
+                <column name="created_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_comments"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="updatedAt" id="_1656177470159109">
+                <temporal>TIMESTAMP</temporal>
+                <column name="updated_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_comments"/>
+            </basic>
+            <many-to-one optional="false" connected-entity-id="_165617747015410" connected-attribute-id="_165617747015877" v="true" name="productId" id="_1656177470159110">
+                <join-column name="PRODUCT_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </many-to-one>
+            <many-to-one optional="false" connected-entity-id="_165617747015411" connected-attribute-id="_165617747015994" v="true" name="users" id="_1656177470159111">
+                <join-column name="USER_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+                <join-column name="USER_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </many-to-one>
+            <id attribute-type="Integer" v="true" name="id" id="_1656177470159106">
+                <column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="sg_comments"/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <table name="sg_comments"/>
+    </entity>
+    <entity abs="false" class="OrderDetailsPayments" v="true" xre="false" m="false" rootElement="_16561774701231" id="_165617747015415">
+        <attributes>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="createdAt" id="_1656177470159113">
+                <temporal>TIMESTAMP</temporal>
+                <column name="created_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_order_details_payments"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="updatedAt" id="_1656177470159114">
+                <temporal>TIMESTAMP</temporal>
+                <column name="updated_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_order_details_payments"/>
+            </basic>
+            <many-to-one optional="false" connected-entity-id="_16561774701549" connected-attribute-id="_165617747015864" v="true" name="orderId" id="_1656177470159115">
+                <join-column name="ORDER_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </many-to-one>
+            <many-to-one optional="false" connected-entity-id="_16561774701542" connected-attribute-id="_165617747015823" v="true" name="paymentId" id="_1656177470159116">
+                <join-column name="PAYMENT_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </many-to-one>
+            <id attribute-type="Integer" v="true" name="id" id="_1656177470159112">
+                <column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="sg_order_details_payments"/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <table name="sg_order_details_payments"/>
+    </entity>
+    <entity abs="false" class="OrderDetails" v="true" xre="false" m="false" rootElement="_16561774701231" id="_165617747015416">
+        <attributes>
+            <basic optional="false" attribute-type="int" v="true" name="quantity" id="_1656177470159118">
+                <column name="quantity" unique="false" nullable="false" insertable="true" updatable="true" table="sg_order_details"/>
+            </basic>
+            <basic optional="false" attribute-type="int" v="true" name="price" id="_1656177470159119">
+                <column name="price" unique="false" nullable="false" insertable="true" updatable="true" table="sg_order_details"/>
+            </basic>
+            <basic optional="false" attribute-type="int" v="true" name="total" id="_1656177470159120">
+                <column name="total" unique="false" nullable="false" insertable="true" updatable="true" table="sg_order_details"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="createdAt" id="_1656177470159121">
+                <temporal>TIMESTAMP</temporal>
+                <column name="created_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_order_details"/>
+            </basic>
+            <basic optional="false" attribute-type="java.util.Date" v="true" name="updatedAt" id="_1656177470159122">
+                <temporal>TIMESTAMP</temporal>
+                <column name="updated_at" unique="false" nullable="false" insertable="true" updatable="true" table="sg_order_details"/>
+            </basic>
+            <many-to-one optional="false" connected-entity-id="_16561774701549" connected-attribute-id="_165617747015865" v="true" name="orderId" id="_1656177470159123">
+                <join-column name="ORDER_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </many-to-one>
+            <many-to-one optional="false" connected-entity-id="_165617747015410" connected-attribute-id="_165617747015878" v="true" name="productId" id="_1656177470159124">
+                <join-column name="PRODUCT_ID" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </many-to-one>
+            <many-to-one optional="false" connected-entity-id="_16561774701546" connected-attribute-id="_165617747015844" v="true" name="status" id="_1656177470159125">
+                <join-column name="STATUS" rc="ID" unique="false" nullable="true" insertable="true" updatable="true"/>
+            </many-to-one>
+            <id attribute-type="Integer" v="true" name="id" id="_1656177470159117">
+                <column name="id" unique="false" nullable="false" insertable="true" updatable="true" table="sg_order_details"/>
+                <generated-value strategy="DEFAULT"/>
+            </id>
+        </attributes>
+        <table name="sg_order_details"/>
+    </entity>
+</entity-mappings>
