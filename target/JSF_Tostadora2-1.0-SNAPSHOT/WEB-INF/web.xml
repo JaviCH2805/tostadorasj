@@ -28,8 +28,8 @@
         <server-name>localhost</server-name>
         <port-number>3306</port-number>
         <database-name>tostadora</database-name>
-        <user>Gaes3</user>
-        <password>Gaes3</password>
+        <user>root</user>
+        <password>root</password>
         <property>
             <name>useSSL</name>
             <value>false</value>
