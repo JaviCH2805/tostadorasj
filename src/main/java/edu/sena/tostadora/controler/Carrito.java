@@ -84,7 +84,7 @@ public int calcularTotal(Carts c){
         try {
             
             cfl.findAll();
-         
+
 
         } catch (Exception e) {
         }
